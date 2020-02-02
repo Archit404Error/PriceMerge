@@ -37,7 +37,7 @@
       echo $curr;
       $i++;
     }
-    echo '<br>';
+    echo "<a href = $url> here </a><br>";
     $url = "https://www.flipkart.com/search?q=$item&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off";
     $html = curl($url);
     $toFind = "_1vC4OE";
@@ -57,7 +57,7 @@
       }
       $i++;
     }
-    echo '<br>';
+    echo "<a href = $url> here </a><br>";
     $url = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR11.TRC2.A0.H1.X$item.TRS1&_nkw=$item&_sacat=0";
     $html = curl($url);
     $toFind = "s-item__price";
@@ -71,5 +71,6 @@
       echo $curr;
       $i++;
     }
+    echo "<a href = $url> here </a><br>";
   ?>
 </html>
