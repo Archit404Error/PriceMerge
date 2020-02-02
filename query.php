@@ -29,7 +29,7 @@
     $toFind = "a-price-whole";
     $i = 15;
     echo "Amazon Price: $";
-    while($i < 18){
+    while($i < 20){
       $curr = $html{strpos($html, $toFind) + $i};
       if($curr == "<"){
         break;
@@ -41,12 +41,31 @@
     $url = "https://www.flipkart.com/search?q=$item&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off";
     $html = curl($url);
     $toFind = "_1vC4OE";
-    $i = 9;
+    $i = 1;
+    $toPrint = False;
     echo "Flipkart Price: ";
-    $toStart = false;
-    while($i < 20){
+    while($i < 30){
       $curr = $html{strpos($html, $toFind) + $i};
+      if($curr == "<"){
+        break;
+      }
+      if($toPrint){
+        echo $curr;
+      }
       if($curr == ">"){
+        $toPrint = True;
+      }
+      $i++;
+    }
+    echo '<br>';
+    $url = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR11.TRC2.A0.H1.X$item.TRS1&_nkw=$item&_sacat=0";
+    $html = curl($url);
+    $toFind = "s-item__price";
+    $i = 15;
+    echo "Ebay Price: ";
+    while($i < 30){
+      $curr = $html{strpos($html, $toFind) + $i};
+      if($curr == "<" or $curr == "."){
         break;
       }
       echo $curr;
