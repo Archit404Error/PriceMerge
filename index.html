@@ -1,8 +1,13 @@
 <html>
   <head>
+    <link rel = "stylesheet" type = "text/css" href = "pace.css">
+    <script src = "pace.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <title>PriceMerge</title>
 
@@ -25,10 +30,34 @@
         font-size: 15vh;
         font-family: 'Amiri', serif;
       }
+      .bottom-align-text {
+        position: absolute;
+        bottom: 0;
+        color: white;
+      }
     </style>
+
+    <script>
+      $(document).ready(function() {
+        $("#queryButton").click(function() {
+          // add spinner to button
+          $(this).html(
+            `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+          );
+        });
+        $("#item").keypress(function() {
+          // add spinner to button
+          var keycode = (event.keyCode ? event.keyCode : event.which);
+          if(keycode == '13'){
+            $("#queryButton").html(
+              `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+            );
+          }
+        });
+      });
+    </script>
   </head>
   <body>
-
     <!-- Landing Start -->
     <div id="outer" class=" mw-100 container text-center landingGradient">
       <div id="inner" class = "mw-100">
@@ -39,8 +68,11 @@
               <label for = "item"><h2 style = "color:white">Search For Books, Shoes, Clothes, Games, etc.</h2></label>
               <input type = "text" name = "item" id = "item" class = "form-control" placeholder="Type Your Item Here..."/>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id="queryButton" type="submit" class="btn btn-primary">Submit</button>
           </form>
+          <div class = "bottom-align-text">
+            <h5>This Product is still in development. Send us your <a href = "https://forms.gle/uujFmj5fYchfrEKT8">feedback!</a></h5>
+          </div>
         </div>
       </div>
     </div>
