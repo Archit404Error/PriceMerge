@@ -3,23 +3,31 @@
     <link rel = "stylesheet" type = "text/css" href = "pace.css">
     <script src = "pace.js"></script>
 
+    <script data-ad-client="ca-pub-2995898581520779" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="animate.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="wow.min.js"></script>
+                  <script>
+                  new WOW().init();
+                  </script>
 
     <title>PriceMerge</title>
 
     <style>
-      h1, h2{
+      h1, h2, h3{
+        color: white;
         font-family: 'Lato', sans-serif;
       }
-      #outer {
+      .outer {
         height: 100vh;
         display: flex;
       }
-      #inner {
+      .inner {
         margin: auto;
       }
       .landingGradient{
@@ -27,7 +35,6 @@
       }
       .landingTitle{
         color: white;
-        font-size: 15vh;
         font-family: 'Amiri', serif;
       }
       .bottom-align-text {
@@ -59,24 +66,54 @@
   </head>
   <body>
     <!-- Landing Start -->
-    <div id="outer" class=" mw-100 container text-center landingGradient">
-      <div id="inner" class = "mw-100">
-        <h1 class = "landingTitle animated fadeInUpBig"><b>Price<font color = "#3DA23B">Merge</font></b></h1>
+    <div class="outer mw-100 container text-center landingGradient">
+      <div class = "inner mw-100">
+        <h1 class = "landingTitle animated wow fadeInUp display-1"><b>Price<font color = "#3DA23B">Merge</font></b></h1>
         <div class = "row d-flex justify-content-center">
           <form action = "query.php" method = "POST">
             <div class = "form-group">
-              <label for = "item"><h2 style = "color:white">Search For Books, Shoes, Clothes, Games, etc.</h2></label>
+              <label for = "item"><h2 class = "animated wow fadeInUp" style = "color:white">Search For Books, Shoes, Clothes, Games, etc.</h2></label>
               <input type = "text" name = "item" id = "item" class = "form-control" placeholder="Type Your Item Here..."/>
             </div>
             <button id="queryButton" type="submit" class="btn btn-primary">Submit</button>
           </form>
           <div class = "bottom-align-text">
-            <h5>This Product is still in development. Send us your <a href = "https://forms.gle/uujFmj5fYchfrEKT8">feedback!</a></h5>
+            <h5>Scroll down to learn more! Also, don't forget to send us your <a href = "https://forms.gle/uujFmj5fYchfrEKT8">feedback!</a></h5>
           </div>
         </div>
       </div>
     </div>
     <!-- Landing End -->
+
+    <!-- About Part 1 Start -->
+    <div class = "outer animated text-center mw-100" style = "background-color: #ffbf00;">
+      <div class = "inner mw-100">
+        <h2 class = "animated wow fadeInUp" style = "font-size: 8vh;">No Tracking, <font color = "#3DA23B">Ever</font></h2>
+        <div style = "height: 2vh;"></div>
+        <h9 class = "animated wow fadeInUp" style = "font-size: 3vh; color: white;"><i>We are the only price comparison site that doesn't track and sell your data, letting you enjoy your privacy!</i></h9>
+      </div>
+    </div>
+    <!-- About Part 1 End -->
+
+    <!-- About Part 2 Start -->
+    <div class = "outer animated text-center mw-100" style = "background-color: #ff8c21;">
+      <div class = "inner mw-100">
+        <h2 class = "animated wow fadeInUp" style = "font-size: 8vh;">A Completely <font color = "#3DA23B">Ad-Free</font> Experience</h2>
+        <div style = "height: 2vh;"></div>
+        <h9 class = "animated wow fadeInUp" style = "font-size: 3vh; color: white;"><i>Our site has no ads, or sponsored products, giving you fast, accurate results 100% of the time.</i></h9>
+      </div>
+    </div>
+    <!-- About Part 2 End -->
+
+    <!-- About Part 3 Start -->
+    <div class = "outer animated text-center mw-100" style = "background-color: #ffbf00;">
+      <div class = "inner mw-100">
+        <h2 class = "animated wow fadeInUp" style = "font-size: 8vh;">Dedicated To Giving Back to <font color = "#3DA23B">You</font></h2>
+        <div style = "height: 2vh;"></div>
+        <h9 class = "animated wow fadeInUp" style = "font-size: 3vh; color: white;"><i>Our services are completely free and we make no money; our only goal is to help people save during the Coronavirus Pandemic!</i></h9>
+      </div>
+    </div>
+    <!-- About Part 3 End -->
 
     <!-- BootStrap JS Stuff Start -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
