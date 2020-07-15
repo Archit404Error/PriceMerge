@@ -23,7 +23,16 @@
     <div class = "text-center">
   <?php
 
-    echo "<br><a href = 'index.html'><button class = 'btn btn-primary'>Return to Home</button></a><br><br><br>";
+    //Debugging code start
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+    //Debugging code end
+
+    //Begin prices array
+    $priceVals = array();
+    //End prices array
+
 
     //Curl function start
     function curl($url){
@@ -49,14 +58,24 @@
     //Curl function end
 
     //Search Function start
-    function scrapeSearch($url, $toFind, $i, $sitename, $category){
+    function scrapeSearch($url, $toFind, $i, $sitename, $category, $end){
+      global $priceVals;
       $html = curl($url);
-      echo "<h1>". $sitename. "<br></h1><h5><span class='badge badge-secondary'>$category</span></h5><h2>";
+      $compPrice = "<h1>". $sitename. "<br></h1><h5><span class='badge badge-secondary'>$category</span></h5><h2>";
       $price = "";
-      while($i < 30){
-        $curr = $html{strpos($html, $toFind) + $i};
+      while($i < $end){
+        $curr = "";
+        if(strpos($html, $toFind) !== false){
+          $curr = $html{strpos($html, $toFind) + $i};
+        } else {
+          $compPrice = $compPrice. "word not found";
+          break;
+        }
         if($curr == "<"){
           break;
+        }
+        if($curr == ">"){
+          $curr = "";
         }
         $price = $price. $curr;
         $i++;
@@ -64,56 +83,154 @@
       if(strpos($price, '$') === false and strpos($price, '₹') === false){
         $price = '$'. $price;
       }
-      echo $price. "</h2><a href = $url><button class = 'btn btn-info'> here </button></a><hr>";
+      if(strpos($price, "Access") === true){
+        $price = "Not Found";
+      }
+      $compPrice = $compPrice. $price. "</h2><a href = $url><button class = 'btn btn-info'> here </button></a><hr>";
+      array_push($priceVals, $price. "=>". $compPrice);
     }
     //Search Function end
+
+    //Print Function Start
+    function displayPrices(){
+      global $priceVals;
+      for($i = 0; $i < count($priceVals); $i++){
+        echo explode("=>", $priceVals[$i])[1];
+      }
+    }
+    //Print Function End
 
     //Query formatitng start
     $item = $_POST['item'];
     $item = str_replace(" ", "+", $item);
     //Query formatting end
 
+    //Query Disp Start
+    echo "<br><h1>You Searched For: $item</h1>";
+    echo "<br><a href = 'index.html'><button class = 'btn btn-primary'>Back to Search</button></a><br><br><hr>";
+    //Query Disp End
+
+    //Display Options Start
+    echo "<br>
+      <div class = 'row'>
+      <div class = 'col-md-4'>
+        <h3>Currency Selection</h3>
+        <div class='form-check'>
+          <input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1' checked>
+          <label class='form-check-label' for='gridRadios1'>
+            Dollar
+          </label>
+        </div>
+        <div class='form-check'>
+          <input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>
+          <label class='form-check-label' for='gridRadios2'>
+            Euro
+          </label>
+        </div>
+        <div class='form-check'>
+          <input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>
+          <label class='form-check-label' for='gridRadios2'>
+            Rupee
+          </label>
+        </div>
+        </div>
+        <div class = 'col-md-4'>
+          <h3>Search Options</h3>
+          <div class='form-check'>
+            <input class='form-check-input' type='checkbox' name='gridRadios' id='gridRadios2' value='option2'>
+            <label class='form-check-label' for='gridRadios1'>
+              Exact Search
+            </label>
+          </div>
+          <div class='form-check'>
+            <input class='form-check-input' type='checkbox' name='gridRadios' id='gridRadios2' value='option2'>
+            <label class='form-check-label' for='gridRadios1'>
+              Alphabetical Ordering
+            </label>
+          </div>
+        </div>
+        <div class = 'col-md-4'>
+          <h3>Display Amount</h3>
+        </div>
+        </div>
+    <hr>";
+    //Display Options End
+
     //Amazon price pull start
 
     $url = 'https://www.amazon.com/s?k='. $item. '&ref=nb_sb_noss_2';
-    scrapeSearch($url, "a-price-whole", 15, "Amazon", "multi-purpose");
+    scrapeSearch($url, "a-price-whole", 15, "Amazon", "multi-purpose", 30);
 
     //Amazon price pull end
 
     //Flipkart price pull start
 
     $url = "https://www.flipkart.com/search?q=$item&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off";
-    scrapeSearch($url, "_1vC4OE", 9, "FlipKart", "India multi-purpose");
+    scrapeSearch($url, "_1vC4OE", 9, "FlipKart", "India multi-purpose", 30);
 
     //Flipkart price pull end
 
     //Ebay price pull start
 
     $url = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR11.TRC2.A0.H1.X$item.TRS1&_nkw=$item&_sacat=0";
-    scrapeSearch($url, "s-item__price", 15, "Ebay", "multi-purpose");
+    scrapeSearch($url, "s-item__price", 15, "Ebay", "multi-purpose", 30);
 
     //Ebay price pull end
 
     //Walmart price pull start
 
     $url = "https://www.walmart.com/search/?query=$item";
-    scrapeSearch($url, "price-characteristic", 22, "Walmart", "retailer");
+    scrapeSearch($url, "price-characteristic", 22, "Walmart", "retailer", 30);
 
     //Walmart price pull end
 
     //Etsy price pull start
 
     $url = "https://www.etsy.com/search?q=$item";
-    scrapeSearch($url, "currency-value", 16, "Etsy", "Home Decor");
+    scrapeSearch($url, "currency-value", 16, "Etsy", "Home Decor", 30);
 
     //Etsy price pull end
 
     //Overstock price pull start
 
     $url = "https://www.overstock.com/$item,/k,/results.html?SearchType=Header";
-    scrapeSearch($url, "currentPrice ", 15, "Overstock", "Home Decor");
+    scrapeSearch($url, "currentPrice ", 15, "Overstock", "Home Decor", 30);
 
     //Overstock price pull end
+
+    //Google Shopping Price Start
+
+    $url = "https://www.google.com/search?psb=1&tbm=shop&q=$item";
+    scrapeSearch($url, "class=\"HRLxBb\"", 15, "Google Shopping", "General Purpose", 30);
+
+    //Google Shopping Price End
+
+    //Jet price pull start
+
+    $url = "https://jet.com/search?term=$item";
+    scrapeSearch($url, "hIuNJJ\">", 7, "Jet", "General Purpose", 30);
+
+    //Jet price pull end
+
+    //Macys price pull start
+
+    $url = "https://www.macys.com/shop/featured/$item";
+    scrapeSearch($url, "\"priceLabel\"></span> ", 19, "Macys", "Clothes", 30);
+
+    //Macys price pull end
+
+    //Alibaba price pull start
+
+    $url = "https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=$item";
+    scrapeSearch($url, "price medium\" title=\"", 21, "Alibaba", "General", 32);
+
+    //Alibaba price pull end
+
+    //Show Results Start
+
+    displayPrices();
+
+    //Show Results End
 
   ?>
   </div>
