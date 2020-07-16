@@ -100,13 +100,14 @@
     }
     //Print Function End
 
-    //Query formatitng start
+    //Query formatting start
     $item = $_POST['item'];
+    $orig_item = $item; 
     $item = str_replace(" ", "+", $item);
     //Query formatting end
 
     //Query Disp Start
-    echo "<br><h1>You Searched For: $item</h1>";
+    echo "<br><h1>You Searched For: $orig_item</h1>";
     echo "<br><a href = 'index.html'><button class = 'btn btn-primary'>Back to Search</button></a><br><br><hr>";
     //Query Disp End
 
