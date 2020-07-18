@@ -86,8 +86,11 @@
       if(strpos($price, "Access") === true){
         $price = "Not Found";
       }
+      if($sitename == "FlipKart"){
+        $price = trim($price, "2rQ-NK\"");
+      }
       $compPrice = $compPrice. $price. "</h2>". testLink($url, $linktags, $starttwo, 200, $startLink);
-      array_push($priceVals, $price. "=>". $compPrice);
+      $priceVals[$price] = $compPrice;
     }
     //Search Function end
 
@@ -105,7 +108,6 @@
         $start++;
       }
       $final = "http://". $startlink. $link;
-      echo $link. "<br>";
       return "<a href = $final><button class = \"btn btn-info\">Link</button></a><hr>";
     }
     //Test Function End
@@ -113,8 +115,10 @@
     //Print Function Start
     function displayPrices(){
       global $priceVals;
-      for($i = 0; $i < count($priceVals); $i++){
-        echo explode("=>", $priceVals[$i])[1];
+      ksort($priceVals);
+      foreach($priceVals as $key => $priceDisp){
+        echo $key;
+        echo $priceDisp;
       }
     }
     //Print Function End
@@ -207,14 +211,14 @@
     //Etsy price pull start
 
     $url = "https://www.etsy.com/search?q=$item";
-    //scrapeSearch($url, "currency-value", 16, "Etsy", "Home Decor", 30);
+    scrapeSearch($url, "currency-value", 16, "Etsy", "Home Decor", 30, "data-palette-listing-image", 61, "etsy.com");
 
     //Etsy price pull end
 
     //Overstock price pull start
 
     $url = "https://www.overstock.com/$item,/k,/results.html?SearchType=Header";
-    //scrapeSearch($url, "currentPrice ", 15, "Overstock", "Home Decor", 30);
+    scrapeSearch($url, "currentPrice ", 15, "Overstock", "Home Decor", 40, "productCardLink\" href=\"", 48, "overstock.com");
 
     //Overstock price pull end
 
@@ -225,7 +229,7 @@
 
     //Google Shopping Price End
 
-    //Jet price pull start
+    //Jet price pull start, jet was discontinued by walmart
 
     $url = "https://jet.com/search?term=$item";
     //scrapeSearch($url, "hIuNJJ\">", 7, "Jet", "General Purpose", 30);
@@ -235,7 +239,7 @@
     //Macys price pull start
 
     $url = "https://www.macys.com/shop/featured/$item";
-    //scrapeSearch($url, "\"priceLabel\"></span> ", 19, "Macys", "Clothes", 30);
+    scrapeSearch($url, "\"priceLabel\"></span> ", 19, "Macys", "Clothes", 30, "a href=\"/shop/product", 8, "macys.com");
 
     //Macys price pull end
 
@@ -245,6 +249,13 @@
     //scrapeSearch($url, "price medium\" title=\"", 21, "Alibaba", "General", 32);
 
     //Alibaba price pull end
+
+    //Target price pull start
+
+    $url = "https://www.target.com/s?searchTerm=$item&category=0%7CAll%7Cmatchallpartial%7Call+categories&tref=typeahead%7Cterm%7C1%7Cface+mask%7C%7C%7Cdefault&searchRawTerm=";
+    scrapeSearch($url, "product-price", 21, "Target", "General", 32, "a href=\"/p/", 10, "target.com");
+
+    //Target price pull end
 
     //Show Results Start
 
