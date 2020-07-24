@@ -24,9 +24,9 @@
   <?php
 
     //Debugging code start
-    ini_set('display_errors', '1');
-    ini_set('display_startup_errors', '1');
-    error_reporting(E_ALL);
+    //ini_set('display_errors', '1');
+    //ini_set('display_startup_errors', '1');
+    error_reporting(E_ERROR | E_WARNING | E_PARSE);
     //Debugging code end
 
     //Begin prices array
@@ -88,6 +88,9 @@
       }
       if($sitename == "FlipKart"){
         $price = trim($price, "2rQ-NK\"");
+      }
+      if($sitename == "Overstock"){
+        $price = trim($price, "dText\"Sale ");
       }
       $compPrice = $compPrice. $price. "</h2>". testLink($url, $linktags, $starttwo, 200, $startLink);
       $priceVals[$price] = $compPrice;
