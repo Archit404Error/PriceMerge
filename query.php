@@ -93,7 +93,7 @@
         $price = trim($price, "dText\"Sale ");
       }
       $compPrice = $compPrice. $price. "</h2>". testLink($url, $linktags, $starttwo, 200, $startLink);
-      $priceVals[$price] = $compPrice;
+      $priceVals[$price. "|". $sitename] = $compPrice;
     }
     //Search Function end
 
@@ -101,7 +101,7 @@
     function testLink($url, $linktags, $start, $end, $startlink){
       $html = curl($url);
       $link = "";
-      while($start < $end){
+      while(true){
         if($html{strpos($html, $linktags) + $start} == "\""){
           break;
         }
@@ -118,9 +118,9 @@
     //Print Function Start
     function displayPrices(){
       global $priceVals;
-      ksort($priceVals);
+      ksort($priceVals, SORT_NATURAL);
       foreach($priceVals as $key => $priceDisp){
-        echo $key;
+        echo explode("|", $key)[0];
         echo $priceDisp;
       }
     }
@@ -249,7 +249,7 @@
     //Alibaba price pull start
 
     $url = "https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=$item";
-    //scrapeSearch($url, "price medium\" title=\"", 21, "Alibaba", "General", 32);
+    scrapeSearch($url, "price medium\" title=\"", 21, "Alibaba", "General", 32, "organic-gallery-title one-line", 78, "alibaba.com");
 
     //Alibaba price pull end
 
