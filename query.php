@@ -120,7 +120,6 @@
       global $priceVals;
       ksort($priceVals, SORT_NATURAL);
       foreach($priceVals as $key => $priceDisp){
-        echo explode("|", $key)[0];
         echo $priceDisp;
       }
     }
