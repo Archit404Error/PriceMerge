@@ -24,8 +24,8 @@
   <?php
 
     //Debugging code start
-    //ini_set('display_errors', '1');
-    //ini_set('display_startup_errors', '1');
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
     error_reporting(E_ERROR | E_WARNING | E_PARSE);
     //Debugging code end
 
@@ -111,6 +111,7 @@
         $start++;
       }
       $final = "http://". $startlink. $link;
+      echo "completed ". $startlink;
       return "<a href = $final><button class = \"btn btn-info\">Link</button></a><hr>";
     }
     //Test Function End
