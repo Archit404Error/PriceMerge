@@ -214,7 +214,7 @@
     //Etsy price pull start
 
     $url = "https://www.etsy.com/search?q=$item";
-    scrapeSearch($url, "currency-value", 16, "Etsy", "Home Decor", 30, "data-palette-listing-image", 61, "etsy.com");
+    //scrapeSearch($url, "currency-value", 16, "Etsy", "Home Decor", 30, "data-palette-listing-image", 61, "etsy.com");
 
     //Etsy price pull end
 
@@ -242,21 +242,21 @@
     //Macys price pull start
 
     $url = "https://www.macys.com/shop/featured/$item";
-    scrapeSearch($url, "\"priceLabel\"></span> ", 19, "Macys", "Clothes", 30, "a href=\"/shop/product", 8, "macys.com");
+    //scrapeSearch($url, "\"priceLabel\"></span> ", 19, "Macys", "Clothes", 30, "a href=\"/shop/product", 8, "macys.com");
 
     //Macys price pull end
 
     //Alibaba price pull start
 
     $url = "https://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=$item";
-    scrapeSearch($url, "price medium\" title=\"", 21, "Alibaba", "General", 32, "organic-gallery-title one-line", 78, "alibaba.com");
+    //scrapeSearch($url, "price medium\" title=\"", 21, "Alibaba", "General", 32, "organic-gallery-title one-line", 78, "alibaba.com");
 
     //Alibaba price pull end
 
     //Target price pull start
 
     $url = "https://www.target.com/s?searchTerm=$item&category=0%7CAll%7Cmatchallpartial%7Call+categories&tref=typeahead%7Cterm%7C1%7Cface+mask%7C%7C%7Cdefault&searchRawTerm=";
-    scrapeSearch($url, "product-price", 21, "Target", "General", 32, "a href=\"/p/", 10, "target.com");
+    //scrapeSearch($url, "product-price", 21, "Target", "General", 32, "a href=\"/p/", 10, "target.com");
 
     //Target price pull end
 
