@@ -20,9 +20,9 @@
             echo "$realPrice<br>$url<br>$title<br>$siteName";
             $currTime = time();
             $servername = "localhost";
-            $username = "id13018007_admin";
+            $username = "pricemerger";
             $password = "Pricemerge123!";
-            $database = "id13018007_products";
+            $database = "Popularpricemerge";
             try {
                 $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
                 // set the PDO error mode to exception
@@ -31,7 +31,11 @@
                 $result = $conn -> query($sql);
                 if($result -> rowCount() == 1){
                     $toExec = "UPDATE `Popular` SET `id`='$id',`Name`='$title',`Price`='$realPrice',`Site`='$siteName',`URL`='$url',`time`='$currTime' WHERE `id`='$id';";
-                    $conn -> exec($toExec);
+                    if(strpos($realPrice, "shipping") === false){
+                        $conn -> exec($toExec);
+                    } else {
+                        echo "\n\n\nSHIPPP\n\n\n";
+                    }
                     $notify = "SELECT * FROM `Notifications` WHERE `id`=$id";
                     $query = $conn -> query($notify);
                     if($query -> rowCount() >= 1){

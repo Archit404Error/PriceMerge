@@ -111,7 +111,6 @@
         $start++;
       }
       $final = "http://". $startlink. $link;
-      echo "completed ". $startlink;
       return "<a href = $final><button class = \"btn btn-info\">Link</button></a><hr>";
     }
     //Test Function End
@@ -134,7 +133,7 @@
 
     //Query Disp Start
     echo "<br><h1>You Searched For: $orig_item</h1>";
-    echo "<br><a href = 'index.html'><button class = 'btn btn-primary'>Back to Search</button></a><br><br><hr>";
+    echo "<br><a href = 'index.php'><button class = 'btn btn-primary'>Back to Search</button></a><br><br><hr>";
     //Query Disp End
 
     //Display Options Start
