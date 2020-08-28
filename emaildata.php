@@ -3,9 +3,9 @@
     $price = $_POST['price'];
     $id = intval($_POST['hiddenVal']);
     $servername = "localhost";
-    $username = "id13018007_admin";
+    $username = "pricemerger";
     $password = "Pricemerge123!";
-    $database = "id13018007_products";
+    $database = "Popularpricemerge";
     $time = time();
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
@@ -16,9 +16,9 @@
         if($result -> rowCount() == 0){
             $toExec = "INSERT INTO `Notifications` (`email`, `priceVal`, `id`, `time`, `emailed`) VALUES ('$email', '$price', '$id', '$time', 'false');";
             $conn -> exec($toExec);
-            echo 'we will contact you once the price drops!';
+            echo '<div class = "container"><center><h1 style = "color: black">Thanks for using PriceMerge! We will contact you once the price drops!</h1></center></div>';
         } else {
-            echo "We are already tracking this product for the email $email";
+            echo "<div class = 'container'><center><h1 style = 'color: black'>We are already tracking this product for the email $email</h1></center></div>";
         }
     } catch(PDOException $e) {
         echo "Failed: ". $e->getMessage();

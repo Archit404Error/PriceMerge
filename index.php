@@ -4,8 +4,6 @@
 
     <link rel="shortcut icon" href="favicon.png">
 
-    <script data-ad-client="ca-pub-2995898581520779" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
@@ -108,15 +106,13 @@
     <!-- Landing Start -->
     <div class="outer mw-100 container text-center landingGradient">
       <div class = "inner mw-100">
-        <h1 class = "landingTitle animated wow fadeInUp display-1"><b>Price<font color = "#004008">Merge</font></b></h1>
+        <h1 class = "landingTitle animated wow fadeInUp display-1" style = "font-size: 10vh;"><b>Price<font color = "#004008">Merge</font></b></h1>
         <div class = "row d-flex justify-content-center">
-          <form action = "query.php" class = "justify-content-center" method = "POST">
-            <div class = "form-group">
-              <label for = "item"><h2 class = "animated wow fadeInUp" style = "color:white; font-size: 3vw;">Search For Books, Shoes, Clothes, Games, etc.</h2></label>
-              <input type = "text" name = "item" id = "item" class = "form-control" placeholder="Type Your Item Here..."/>
-            </div>
-            <button id="queryButton" type="submit" class="btn btn-primary">Submit</button>
-          </form>
+          <h3 class = "col-md-6 col-sm-12" style = "font-size: 3vh">Save money while shopping online by tracking products across thousands of sites and recieve alerts when prices fall!</h3><br>
+        </div>
+        <div style = "height: 3vh;"></div>
+        <div class = "row d-flex justify-content-center">
+          <a href = "productdisplay.php"><button class = "btn btn-primary">Start Saving Money!</button></a>
           <div class = "bottom-align-text">
             <h5>Scroll down to learn more! Also, don't forget to send us your <a href = "https://forms.gle/uujFmj5fYchfrEKT8">feedback!</a></h5>
           </div>

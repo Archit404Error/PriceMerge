@@ -10,6 +10,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             .section{
                 background-color: "#fafafa";
@@ -44,6 +45,16 @@
             <h1>Coronavirus Product Tracker</h1>
             <h3 class = "col-md-6">This tool lets you compare prices across thousands of sites to find the best deals on vital COVID-19 Products. You can also indicate what price you want to buy a product at and get an email when the price drops!</h3>
         </center>
+        <div style = "height: 2vh"></div>
+        <div class = "row">
+            <div class = "col-md-2"></div>
+            <form class = "col-md-8" method = "POST" action = "productpull.php">
+                <div class = "input-group">
+                    <input name = "userProd" style = "width: 100%;" type = "text" class = "form-control" placeholder = "Search for a product not listed below to find the best price!(hit enter to search)">
+                </div>
+            </form>
+            <div class = "col-md-2"></div>
+        </div>
         <?php
             $products = ["Tissues", "Face Mask", "Hand Sanitizer", "Toilet Paper", "Soap"];
             $servername = "localhost";
