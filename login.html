@@ -1,0 +1,140 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=.5">
+
+<link rel="shortcut icon" href="favicon.png">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="animate.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
+<link rel = "stylesheet" type = "text/css" href = "style.css">
+<title>PriceMerge: compare prices across thousands of sites and save money!</title>
+<meta name="description" content="PriceMerge helps users save money on all products, including those that are in demand during the CoronaVirus Pandemic.
+Not only do we compare prices across thousands of websites, we e-mail you when prices drop below the amount you've indicated you want to buy a product at, so you
+never have to worry about missing out on deals!">
+<meta charset="UTF-8">
+<style>
+  h1, h2, h3{
+    color: white;
+    font-family: 'Lato', sans-serif;
+  }
+  .outer {
+    height: 100vh;
+    display: flex;
+  }
+  .inner {
+    margin: auto;
+  }
+  .landingGradient{
+    background-image: linear-gradient(to bottom right, #FF4500, #FFBF00);
+  }
+  .landingTitle{
+    color: white;
+    font-family: 'Amiri', serif;
+  }
+  .bottom-align-text {
+    position: absolute;
+    bottom: 0;
+    color: white;
+  }
+</style>
+
+<script>
+  $(document).ready(function() {
+    $("#queryButton").click(function() {
+      // add spinner to button
+      $(this).html(
+        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+      );
+    });
+    $("#item").keypress(function() {
+      // add spinner to button
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if(keycode == '13'){
+        $("#queryButton").html(
+          `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+        );
+      }
+    });
+  });
+</script>
+</head>
+    <body>
+
+      <nav class="navbar navbar-expand-lg navbar-light main-navigation">
+          <a class="navbar-brand" href="index.php"><img style = "height: 5vh" src = "sitelogo.png"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a style = "color: white;" class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a style = "color: white;" class="nav-link" href="productdisplay.php">Coronavirus Product Tracker</a>
+                </li>
+                <li class="nav-item">
+                  <a style = "color: white;" class="nav-link" href="about.html">About Us</a>
+                </li>
+
+              </ul>
+          </div>
+      </nav>
+  <div class="landingGradient" style="height:">
+  </br>
+  </br>
+
+  <form action="login.php" method="POST">
+
+              <br />
+              <br />
+
+              <div class="row">
+                  <div class="col-md-3"></div>
+                  <h1 class="animated wow fadeInUp col-md-3" style="color:white;">Log In</h1>
+                  <div class="col-md-3"></div>
+              </div>
+
+            <div class="form-group">
+              <center><input required placeholder="Username" type="text" name="loginuname" class="form-control col-md-6 animated wow fadeInUp" style="width:300vh" /></center>
+            </div>
+            <div class="form-group">
+              <center><input required placeholder="Password" type="text" name="loginpass" class="form-control col-md-6 animated wow fadeInUp" style="width:600vh" /></center>
+
+          </div>
+          <center><button class = "btn btn-primary">Log In</button></center>
+
+            <br/>
+            <br/>
+          </form>
+          <form action="login.php" method="POST">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <h2 class="animated wow fadeInUp col-md-3" style="color:white;">Don't have an account?</h2>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <h1 class="animated wow fadeInUp col-md-3" style="color:white;">Sign Up</h1>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="form-group">
+              <center><input required placeholder="Username" type="text" name="signupuname" class="form-control col-md-6 animated wow fadeInUp" style="width:300vh" /></center>
+            </div>
+            <div class="form-group">
+              <center><input required placeholder="Password" type="text" name="signuppass" class="form-control col-md-6 animated wow fadeInUp" style="width:600vh" /></center>
+            </div>
+
+          <center><button type="submit" class = "btn btn-primary">Sign Up</button></center>
+
+          </form>
+        </div>
+    </body>
+</html>
