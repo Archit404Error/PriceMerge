@@ -4,8 +4,8 @@
         <link rel="shortcut icon" href="favicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=.75">
         <title>Coronavirus Product Tracker - PriceMerge, track important CoronaVirus related resources online!</title>
-        <meta name="description" content="The Coronavirus product tracker tool compares important information for PPE such as hand sanitizer, soap, face masks etc. 
-        across thousands of sites! We also let you indicate what price you'd like to buy a product at, and we will automatically email you when the price drops below 
+        <meta name="description" content="The Coronavirus product tracker tool compares important information for PPE such as hand sanitizer, soap, face masks etc.
+        across thousands of sites! We also let you indicate what price you'd like to buy a product at, and we will automatically email you when the price drops below
         that amount!">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,7 +23,7 @@
         <?php
             error_reporting(E_ALL);
             ini_set('display_errors', 1);
-        
+
             require_once 'simple_html_dom.php';
             function scrapeSite($siteURL, $listingClass, $listingOffset, $priceClass, $priceOffset, $linkClass, $linkOffset, $item){
                 $dom = file_get_html($siteURL, false);

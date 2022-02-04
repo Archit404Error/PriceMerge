@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="animate.css">
 
@@ -17,8 +17,8 @@
     </script>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
     <title>PriceMerge: compare prices across thousands of sites and save money!</title>
-    <meta name="description" content="PriceMerge helps users save money on all products, including those that are in demand during the CoronaVirus Pandemic. 
-    Not only do we compare prices across thousands of websites, we e-mail you when prices drop below the amount you've indicated you want to buy a product at, so you 
+    <meta name="description" content="PriceMerge helps users save money on all products, including those that are in demand during the CoronaVirus Pandemic.
+    Not only do we compare prices across thousands of websites, we e-mail you when prices drop below the amount you've indicated you want to buy a product at, so you
     never have to worry about missing out on deals!">
     <meta charset="UTF-8">
     <style>
@@ -126,7 +126,7 @@
       </div>
     </div>
     <!-- Landing End -->
-    
+
     <!-- How to Use Start -->
     <div class = "outer animated text-center mw-100" style = "background-color: #ff8c21;">
       <div class = "inner mw-100">
@@ -149,7 +149,7 @@
         <h9 class = "animated wow fadeInUp" style = "font-size: 3vh; color: white;"><i>Our site is built around the Coronavirus pandemic, and we want to give you the best deals on vital products as fast as possible.
         Our tools both serve to let you compare prices across multiple e-commerce sites and find the best, cheapest price for important products to keep you and your
         loved ones safe. Our site also has built in features to notify you via email when prices drop so that you always stay in the loop when prices drop and when products become
-        cheaper and more affordable. We combat price gouging and price increases that larger ecommerce stores may conduct and prioritize your income and money, which is 
+        cheaper and more affordable. We combat price gouging and price increases that larger ecommerce stores may conduct and prioritize your income and money, which is
         especially important when the Coronavirus pandemic has left many unable to work.</i></h9>
       </div>
     </div>
@@ -174,7 +174,7 @@
         <h2 class = "animated wow fadeInUp" style = "font-size: 8vh;">Dedicated To Giving Back to <font color = "#004008">You</font></h2>
         <div style = "height: 2vh;"></div>
         <h9 class = "animated wow fadeInUp" style = "font-size: 3vh; color: white;"><i>Our services are completely free and we make no money; our only goal is to help people save
-        during the Coronavirus Pandemic! We do not and will never charge you money to search for product, and we do not and will never show you any advertisements on the 
+        during the Coronavirus Pandemic! We do not and will never charge you money to search for product, and we do not and will never show you any advertisements on the
         website. Our only goal is helping you find good deals on important Coronavirus product and regular products while shopping online, and we do it all for free!</i></h9>
       </div>
     </div>
